@@ -36,7 +36,7 @@ const Register = () => {
             <h1 className='p-2 text-center rounded'>Signup Form</h1>
 
             <div className='p-2 w-full'>
-              <input className='p-3 w-full bg-gray-200 outline-none rounded-full focus:bg-amber-200 text-black' 
+              <input className='p-3 w-full bg-gray-200 outline-none rounded-full text-black' 
                      type="text" 
                      placeholder='Enter the Username' 
                      value={username}
@@ -45,7 +45,7 @@ const Register = () => {
             </div>
 
             <div className='p-2 w-full'>
-              <input className='p-3 w-full bg-gray-200 outline-none rounded-full focus:bg-amber-200 text-black' 
+              <input className='p-3 w-full bg-gray-200 outline-none rounded-full text-black' 
                      type="email" 
                      placeholder='Enter the email' 
                      value={email}
@@ -54,7 +54,7 @@ const Register = () => {
             </div>
   
             <div className='p-2 w-full'>
-              <input className='p-3 w-full bg-gray-200 outline-none rounded-full focus:bg-amber-200 text-black' 
+              <input className='p-3 w-full bg-gray-200 outline-none rounded-full text-black' 
                      type="password" 
                      placeholder='Enter the password' 
                      value={password}
