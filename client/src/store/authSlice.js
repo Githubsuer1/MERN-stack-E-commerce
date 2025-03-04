@@ -14,7 +14,7 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser", 
     async (userData, { rejectWithValue }) => {
         try {
-            const response = await axios.post("/api/v1/users/login", userData);
+            const response = await axios.post("https://shopistyle-backend.vercel.app/api/v1/users/login", userData);
             localStorage.setItem("user", JSON.stringify(response.data.user)); // 
             localStorage.setItem("token", response.data.accesstoken); // 
             return response.data;
@@ -29,7 +29,7 @@ export const fetchUser = createAsyncThunk("auth/fetchUser", async ({ getState, r
   const token = getState().auth.token;
   if (!token) return rejectWithValue("No token found");
   try {
-      const response = await axios.get("/api/v1/users/profile", {
+      const response = await axios.get("https://shopistyle-backend.vercel.app/api/v1/users/profile", {
           headers: { Authorization: `Bearer ${token}` },
       });
       return response.data.user;
@@ -42,7 +42,7 @@ export const fetchUser = createAsyncThunk("auth/fetchUser", async ({ getState, r
 // Async function for registering user
 export const registerUser = createAsyncThunk("auth/registerUser", async (userdata,{rejectWithValue})=>{
   try {
-    const response = await axios.post("api/v1/users/register",userdata,{
+    const response = await axios.post("https://shopistyle-backend.vercel.app/api/v1/users/register",userdata,{
       headers:{"Content-Type":"application/json"}
     })
     return response.data;
