@@ -41,12 +41,12 @@ const Login = () => {
         <form className='sm:w-[60%] border-4 border-amber-500 max-w-lg flex flex-col gap-5 p-5' onSubmit={handleSubmit}>
           <h1 className='p-2 text-center rounded'>Login Form</h1>
           <div className='p-2 w-full'>
-            <input className='p-3 w-full bg-gray-200 outline-none rounded-full focus:bg-amber-200 text-black' 
+            <input className='p-3 w-full bg-gray-200 outline-none rounded-full text-black' 
             type="email" placeholder='Enter the email' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
           </div>
 
           <div className='p-2 w-full'>
-            <input className='p-3 w-full bg-gray-200 outline-none rounded-full focus:bg-amber-200 text-black' 
+            <input className='p-3 w-full bg-gray-200 outline-none rounded-full text-black' 
             type="password" placeholder='Enter the password' value={password} onChange={(e)=>setPassword(e.target.value)} required/>
           </div>
 
