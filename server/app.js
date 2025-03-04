@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors(
+    {origin:"*"}
+));
 app.use(cookieParser());
 
 // Routes

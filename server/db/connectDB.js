@@ -2,7 +2,9 @@ import mongoose from 'mongoose';
 import DB_NAME from '../constant.js';
 import dotenv from 'dotenv';
 
-dotenv.config({})
+dotenv.config({
+  path:'../.env'
+})
 
 const url = process.env.MONGODB_URI;
 // console.log(url);

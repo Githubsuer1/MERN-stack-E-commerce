@@ -61,7 +61,7 @@ const UserControl = {
     login: async (req,res)=>{
         try {
             const {email,password} = req.body;
-            // console.log(email,password)
+            console.log(email,password)
     
             // finding user in database by matching the email
             const findUser = await User.findOne({email});
