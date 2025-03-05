@@ -14,7 +14,7 @@ export const loginUser = createAsyncThunk(
     "auth/loginUser", 
     async (userData, { rejectWithValue }) => {
         try {
-            const response = await axios.post("https://shopistyle-backend.vercel.app/api/v1/users/login", userData);
+            const response = await axios.post("/api/v1/users/login", userData);
             localStorage.setItem("user", JSON.stringify(response.data.user)); // 
             localStorage.setItem("token", response.data.accesstoken); // 
             return response.data;
@@ -29,9 +29,8 @@ export const fetchUser = createAsyncThunk("auth/fetchUser", async ({ getState, r
   const token = getState().auth.token;
   if (!token) return rejectWithValue("No token found");
   try {
-      const response = await axios.get("https://shopistyle-backend.vercel.app/api/v1/users/profile", {
-          headers: { Authorization: `Bearer ${token}` },
-      });
+      const headers = {Authorization:`Bearer ${token}`};
+      const response = await axios.get("/api/v1/users/profile",headers);
       return response.data.user;
   } catch (error) {
       return rejectWithValue(error.response.data);
@@ -42,9 +41,8 @@ export const fetchUser = createAsyncThunk("auth/fetchUser", async ({ getState, r
 // Async function for registering user
 export const registerUser = createAsyncThunk("auth/registerUser", async (userdata,{rejectWithValue})=>{
   try {
-    const response = await axios.post("https://shopistyle-backend.vercel.app/api/v1/users/register",userdata,{
-      headers:{"Content-Type":"application/json"}
-    })
+    const headers = {"Content-Type":"application/json"};
+    const response = await axios.post("/api/v1/users/register",userdata,headers)
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data || "Signup failed")
@@ -64,7 +62,7 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
+      builder
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
       })

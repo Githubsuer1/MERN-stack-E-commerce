@@ -9,9 +9,12 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(cors(
-    {origin:"*"}
-));
+// Use the CORS middleware
+app.use(cors({
+    origin: 'https://shopistyle.vercel.app',
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization'
+  }));
 app.use(cookieParser());
 
 // Routes
